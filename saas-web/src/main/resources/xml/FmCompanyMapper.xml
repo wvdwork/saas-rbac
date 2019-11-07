@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wvd.saas.rbac.web.mapper.FmCompanyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wvd.saas.rbac.web.entity.FmCompany">
+        <id column="id" property="id" />
+        <result column="company_code" property="companyCode" />
+        <result column="company_name" property="companyName" />
+        <result column="company_profile" property="companyProfile" />
+        <result column="company_legal" property="companyLegal" />
+        <result column="company_phone" property="companyPhone" />
+        <result column="company_mail" property="companyMail" />
+        <result column="company_logo_url" property="companyLogoUrl" />
+        <result column="company_dis_name" property="companyDisName" />
+        <result column="is_active" property="isActive" />
+        <result column="is_del" property="isDel" />
+        <result column="create_time" property="createTime" />
+        <result column="create_user" property="createUser" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_user" property="updateUser" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, company_code AS companyCode, company_name AS companyName, company_profile AS companyProfile, company_legal AS companyLegal, company_phone AS companyPhone, company_mail AS companyMail, company_logo_url AS companyLogoUrl, company_dis_name AS companyDisName, is_active AS isActive, is_del AS isDel, create_time AS createTime, create_user AS createUser, update_time AS updateTime, update_user AS updateUser
+    </sql>
+
+</mapper>
