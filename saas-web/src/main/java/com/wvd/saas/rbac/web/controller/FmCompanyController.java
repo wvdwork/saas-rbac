@@ -1,7 +1,5 @@
 package com.wvd.saas.rbac.web.controller;
 
-
-import com.wvd.common.core.controller.BaseController;
 import com.wvd.saas.rbac.web.common.SystemResponseImplStatus;
 import com.wvd.saas.rbac.web.entity.FmCompany;
 import com.wvd.saas.rbac.web.service.IFmCompanyService;
@@ -24,14 +22,14 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/fmCompany")
-public class FmCompanyController extends BaseController {
+public class FmCompanyController {
     @Autowired
     IFmCompanyService companyService;
 
     @RequestMapping
     public ResponseVo findAll() {
         FmCompany company = companyService.getById(0l);
-        return new ResponseVo(SystemResponseImplStatus.S_20000);
+        return new ResponseVo();
     }
 
     @RequestMapping(value = "page", method = RequestMethod.GET)

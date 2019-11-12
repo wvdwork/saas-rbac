@@ -7,13 +7,13 @@ public class MetaObjectHandlerConfig implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
-         setFieldValByName("createTime", System.currentTimeMillis()/1000, metaObject);
-         setFieldValByName("createUser", "auto", metaObject);
+        setFieldValByName("createTime", System.currentTimeMillis(), metaObject);
+        setFieldValByName("createUser", "auto", metaObject);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         setFieldValByName("updateTime", System.currentTimeMillis(), metaObject);
-        setFieldValByName("updateUser", System.currentTimeMillis(), metaObject);
+        setFieldValByName("updateUser", "auto", metaObject);
     }
 }

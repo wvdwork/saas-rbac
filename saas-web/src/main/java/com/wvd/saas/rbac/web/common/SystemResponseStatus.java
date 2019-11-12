@@ -1,7 +1,10 @@
 package com.wvd.saas.rbac.web.common;
 
 public class SystemResponseStatus {
-    public final static SystemResponseStatus S_20000 = newStatus("S_20000", "成功");
+    public final static SystemResponseStatus S_2000000 = newStatus("S_2000000", "成功");
+
+
+    public final static SystemResponseStatus E_4001000 = newStatus("E_4001000", "项目已存在");
 
     private String code;
     private String message;

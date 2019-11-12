@@ -33,6 +33,14 @@ public class FmOrganizationController {
         return new ResponseVo(service.searchPage(paraMap));
     }
 
+    /**
+     * 分页查询
+     */
+    @RequestMapping(value = "orgs", method = RequestMethod.GET)
+    public ResponseVo orgTree(@RequestParam Map paraMap) {
+        return new ResponseVo(service.findOrgTree(paraMap));
+    }
+
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public ResponseVo addOrg(@RequestBody FmOrganization organization) {
         this.service.save(organization);

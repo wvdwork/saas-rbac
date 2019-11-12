@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wvd.saas.rbac.web.mapper.FmApplicationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wvd.saas.rbac.web.entity.FmApplication">
+        <id column="id" property="id" />
+        <result column="application_code" property="applicationCode" />
+        <result column="application_name" property="applicationName" />
+        <result column="application_desc" property="applicationDesc" />
+        <result column="company_id" property="companyId" />
+        <result column="is_active" property="isActive" />
+        <result column="is_del" property="isDel" />
+        <result column="create_time" property="createTime" />
+        <result column="create_user" property="createUser" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_user" property="updateUser" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, application_code AS applicationCode, application_name AS applicationName, application_desc AS applicationDesc, company_id AS companyId, is_active AS isActive, is_del AS isDel, create_time AS createTime, create_user AS createUser, update_time AS updateTime, update_user AS updateUser
+    </sql>
+</mapper>
