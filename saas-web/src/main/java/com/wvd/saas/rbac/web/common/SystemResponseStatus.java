@@ -6,6 +6,8 @@ public class SystemResponseStatus {
 
     public final static SystemResponseStatus E_4001000 = newStatus("E_4001000", "项目已存在");
 
+    public final static SystemResponseStatus E_4002000 = newStatus("E_4002000", "登录账号已存在");
+
     private String code;
     private String message;
     protected static SystemResponseStatus newStatus(String code, String message) {

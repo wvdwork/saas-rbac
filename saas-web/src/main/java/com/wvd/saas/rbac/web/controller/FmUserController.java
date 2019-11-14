@@ -1,7 +1,9 @@
 package com.wvd.saas.rbac.web.controller;
 
 import com.wvd.saas.rbac.web.dto.UserAddDto;
+import com.wvd.saas.rbac.web.entity.FmApplication;
 import com.wvd.saas.rbac.web.entity.FmUser;
+import com.wvd.saas.rbac.web.service.IFmUserAccountService;
 import com.wvd.saas.rbac.web.service.IFmUserService;
 import com.wvd.saas.rbac.web.vo.ResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class FmUserController {
     @Autowired
     IFmUserService service;
 
+    @Autowired
+    IFmUserAccountService accountService;
+
     @RequestMapping(value = "page", method = RequestMethod.GET)
     public ResponseVo selectPage(@RequestParam Map paraMap) {
         return new ResponseVo(service.searchPage(paraMap));
@@ -24,5 +29,16 @@ public class FmUserController {
     public ResponseVo addUser(@RequestBody UserAddDto user) {
         this.service.save(user);
         return new ResponseVo();
+    }
+
+    @RequestMapping(value = "modify", method = RequestMethod.POST)
+    public ResponseVo modified(@RequestBody FmUser fmUser) {
+        this.service.updateById(fmUser);
+        return new ResponseVo();
+    }
+
+    @RequestMapping(value = "{userId}/account/list", method = RequestMethod.POST)
+    public ResponseVo accountList(@PathVariable Long userId) {
+        return new ResponseVo(this.accountService.getByUserId(userId));
     }
 }

@@ -1,10 +1,13 @@
 package com.wvd.saas.rbac.web.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wvd.saas.rbac.web.entity.FmUserAccount;
 import com.wvd.saas.rbac.web.mapper.FmUserAccountMapper;
 import com.wvd.saas.rbac.web.service.IFmUserAccountService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class FmUserAccountServiceImpl extends ServiceImpl<FmUserAccountMapper, FmUserAccount> implements IFmUserAccountService {
 
+    public FmUserAccount getByAccount(String account) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("user_account", account);
+        return this.getOne(queryWrapper);
+    }
+
+    public List<FmUserAccount> getByUserId(Long userId) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("user_id", userId);
+        return this.list(queryWrapper);
+    }
 }
