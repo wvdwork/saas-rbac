@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wvd.saas.rbac.web.entity.FmUserAccount;
 import com.wvd.saas.rbac.web.mapper.FmUserAccountMapper;
+import com.wvd.saas.rbac.web.service.IFmOrganizationService;
 import com.wvd.saas.rbac.web.service.IFmUserAccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +22,9 @@ import java.util.List;
 @Service
 public class FmUserAccountServiceImpl extends ServiceImpl<FmUserAccountMapper, FmUserAccount> implements IFmUserAccountService {
 
+    @Autowired
+    IFmOrganizationService organizationService;
+
     public FmUserAccount getByAccount(String account) {
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("user_account", account);
@@ -31,4 +36,6 @@ public class FmUserAccountServiceImpl extends ServiceImpl<FmUserAccountMapper, F
         queryWrapper.eq("user_id", userId);
         return this.list(queryWrapper);
     }
+
+
 }

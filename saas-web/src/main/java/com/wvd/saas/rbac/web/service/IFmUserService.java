@@ -19,4 +19,5 @@ import java.util.Map;
 public interface IFmUserService extends IService<FmUser> {
     IPage<FmUser> searchPage(Map map);
     void save(UserAddDto userAddDto);
+    Map userOrgTreeSearch(Long userId);
 }

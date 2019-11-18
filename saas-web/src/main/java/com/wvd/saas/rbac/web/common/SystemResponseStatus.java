@@ -5,6 +5,7 @@ public class SystemResponseStatus {
 
 
     public final static SystemResponseStatus E_4001000 = newStatus("E_4001000", "项目已存在");
+    public final static SystemResponseStatus E_4003000 = newStatus("E_4003000", "存在子组织，不能删除!");
 
     public final static SystemResponseStatus E_4002000 = newStatus("E_4002000", "登录账号已存在");
 

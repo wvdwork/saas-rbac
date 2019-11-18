@@ -124,3 +124,19 @@ CREATE TABLE t_fm_password
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 100000
   DEFAULT CHARSET = utf8mb4 COMMENT ='用户密码表';
+
+DROP TABLE IF EXISTS `t_fm_org_user`;
+CREATE TABLE t_fm_org_user
+(
+    id                       bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '非业务主键ID',
+    user_id                  bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '用户ID',
+    org_id                   bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '组织ID',
+    is_del                   tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否被删除',
+    create_time              bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+    create_user              varchar(50)         NOT NULL DEFAULT '' COMMENT '创建人',
+    update_time              bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '最后一次修改时间',
+    update_user              varchar(50)         NOT NULL DEFAULT '' COMMENT '最后一次修改人',
+    PRIMARY KEY (ID)
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 100000
+  DEFAULT CHARSET = utf8mb4 COMMENT ='用户组织表';

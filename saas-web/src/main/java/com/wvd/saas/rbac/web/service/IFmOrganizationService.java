@@ -18,4 +18,5 @@ import java.util.Map;
 public interface IFmOrganizationService extends IService<FmOrganization> {
     IPage<FmOrganization> searchPage(Map map);
     JSONArray findOrgTree(Map map);
+    void deleteOrgs(Long id);
 }

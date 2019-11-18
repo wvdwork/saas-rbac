@@ -47,5 +47,15 @@ public class FmOrganizationController {
         return new ResponseVo();
     }
 
+    @RequestMapping(value = "modified", method = RequestMethod.POST)
+    public ResponseVo modified(@RequestBody FmOrganization organization) {
+        this.service.updateById(organization);
+        return new ResponseVo();
+    }
 
+    @RequestMapping(value = "delete/{orgId}", method = RequestMethod.POST)
+    public ResponseVo delete(@PathVariable Long orgId) {
+        this.service.deleteOrgs(orgId);
+        return new ResponseVo();
+    }
 }

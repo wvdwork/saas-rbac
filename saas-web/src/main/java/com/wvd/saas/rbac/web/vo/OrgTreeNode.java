@@ -8,6 +8,7 @@ public class OrgTreeNode {
     private Integer orgLevel;
     private String orgCode;
     private String orgName;
+    private Long seq;
     private Long parentId;
 
     public long getId() {
@@ -48,5 +49,13 @@ public class OrgTreeNode {
 
     public void setParentId(Long parentId) {
         this.parentId = parentId;
+    }
+
+    public Long getSeq() {
+        return seq;
+    }
+
+    public void setSeq(Long seq) {
+        this.seq = seq;
     }
 }

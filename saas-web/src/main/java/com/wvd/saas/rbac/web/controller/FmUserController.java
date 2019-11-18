@@ -41,4 +41,18 @@ public class FmUserController {
     public ResponseVo accountList(@PathVariable Long userId) {
         return new ResponseVo(this.accountService.getByUserId(userId));
     }
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public ResponseVo delete(@PathVariable Long userId) {
+        FmUser fmUser = new FmUser();
+        fmUser.setId(userId);
+        fmUser.setIsActive(0);
+        this.service.updateById(fmUser);
+        return new ResponseVo();
+    }
+
+    @RequestMapping(value = "{userId}/organization/tree", method = RequestMethod.POST)
+    public ResponseVo userOrganization(@PathVariable Long userId) {
+        return new ResponseVo(this.service.userOrgTreeSearch(userId));
+    }
 }
