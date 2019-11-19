@@ -138,5 +138,4 @@ CREATE TABLE t_fm_org_user
     update_user              varchar(50)         NOT NULL DEFAULT '' COMMENT '最后一次修改人',
     PRIMARY KEY (ID)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 100000
-  DEFAULT CHARSET = utf8mb4 COMMENT ='用户组织表';
+  AUTO_INCREMENT=100000 DEFAULT CHARSET = utf8mb4 COMMENT ='用户组织表';

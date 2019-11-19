@@ -20,4 +20,5 @@ public interface IFmUserService extends IService<FmUser> {
     IPage<FmUser> searchPage(Map map);
     void save(UserAddDto userAddDto);
     Map userOrgTreeSearch(Long userId);
+    void saveUserOrg(Long userId, Long orgId);
 }

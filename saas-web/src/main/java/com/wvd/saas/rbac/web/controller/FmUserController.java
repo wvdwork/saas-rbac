@@ -55,4 +55,10 @@ public class FmUserController {
     public ResponseVo userOrganization(@PathVariable Long userId) {
         return new ResponseVo(this.service.userOrgTreeSearch(userId));
     }
+
+    @RequestMapping(value = "org/{userId}/{orgId}", method = RequestMethod.POST)
+    public ResponseVo saveUserOrganization(@PathVariable Long userId, @PathVariable Long orgId) {
+        this.service.saveUserOrg(userId, orgId);
+        return new ResponseVo();
+    }
 }

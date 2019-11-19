@@ -99,14 +99,24 @@ public class FmUserServiceImpl extends ServiceImpl<FmUserMapper, FmUser> impleme
         JSONArray orgTree = organizationService.findOrgTree(new HashMap());
         Map retMap = new HashMap();
         if (CollectionUtils.isNotEmpty(orgUsers)) {
-            List<Long> selected = new ArrayList();
+            List<String> selected = new ArrayList();
             orgUsers.forEach(e -> {
-                selected.add(e.getId());
+                selected.add(String.valueOf(e.getOrgId()));
             });
             retMap.put("selected", selected);
         }
         retMap.put("orgTree", orgTree);
         return retMap;
+    }
 
+    @Transactional
+    public void saveUserOrg(Long userId, Long orgId) {
+        FmOrgUser fmOrgUser = new FmOrgUser();
+        fmOrgUser.setOrgId(orgId);
+        fmOrgUser.setUserId(userId);
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("user_id", userId);
+        this.orgUserService.remove(queryWrapper);
+        this.orgUserService.save(fmOrgUser);
     }
 }

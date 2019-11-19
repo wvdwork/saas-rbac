@@ -2,9 +2,7 @@ package com.wvd.saas.rbac.web.entity;
 
 import java.io.Serializable;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -25,7 +23,7 @@ public class FmPassword extends Model<FmPassword> {
     /**
      * 非业务主键ID
      */
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
      * 用户ID

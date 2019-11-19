@@ -23,7 +23,7 @@ public class FmApplication extends Model<FmApplication> {
     /**
      * 非业务主键ID
      */
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
      * 项目编码
