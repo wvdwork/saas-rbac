@@ -47,7 +47,7 @@ public class FmOrganizationController {
         return new ResponseVo();
     }
 
-    @RequestMapping(value = "modified", method = RequestMethod.POST)
+    @RequestMapping(value = "modify", method = RequestMethod.POST)
     public ResponseVo modified(@RequestBody FmOrganization organization) {
         this.service.updateById(organization);
         return new ResponseVo();

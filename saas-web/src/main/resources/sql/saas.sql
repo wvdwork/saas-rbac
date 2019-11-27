@@ -128,14 +128,33 @@ CREATE TABLE t_fm_password
 DROP TABLE IF EXISTS `t_fm_org_user`;
 CREATE TABLE t_fm_org_user
 (
-    id                       bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '非业务主键ID',
-    user_id                  bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '用户ID',
-    org_id                   bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '组织ID',
-    is_del                   tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否被删除',
-    create_time              bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
-    create_user              varchar(50)         NOT NULL DEFAULT '' COMMENT '创建人',
-    update_time              bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '最后一次修改时间',
-    update_user              varchar(50)         NOT NULL DEFAULT '' COMMENT '最后一次修改人',
+    id          bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '非业务主键ID',
+    user_id     bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '用户ID',
+    org_id      bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '组织ID',
+    is_del      tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否被删除',
+    create_time bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+    create_user varchar(50)         NOT NULL DEFAULT '' COMMENT '创建人',
+    update_time bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '最后一次修改时间',
+    update_user varchar(50)         NOT NULL DEFAULT '' COMMENT '最后一次修改人',
     PRIMARY KEY (ID)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT=100000 DEFAULT CHARSET = utf8mb4 COMMENT ='用户组织表';
+  AUTO_INCREMENT = 100000
+  DEFAULT CHARSET = utf8mb4 COMMENT ='用户组织表';
+
+DROP TABLE IF EXISTS `t_fm_role`;
+CREATE TABLE t_fm_role
+(
+    id             bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '非业务主键ID',
+    role_name      varchar(20)         NOT NULL DEFAULT '' COMMENT '角色名称',
+    application_id bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '项目ID',
+    company_id     bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '公司ID',
+    role_desc      varchar(500)        NOT NULL DEFAULT '' COMMENT '角色描述',
+    is_del         tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否被删除',
+    create_time    bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+    create_user    varchar(50)         NOT NULL DEFAULT '' COMMENT '创建人',
+    update_time    bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '最后一次修改时间',
+    update_user    varchar(50)         NOT NULL DEFAULT '' COMMENT '最后一次修改人',
+    PRIMARY KEY (ID)
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 100000
+  DEFAULT CHARSET = utf8mb4 COMMENT ='角色表';

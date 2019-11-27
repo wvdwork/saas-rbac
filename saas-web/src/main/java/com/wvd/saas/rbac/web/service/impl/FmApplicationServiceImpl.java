@@ -14,6 +14,7 @@ import org.apache.commons.collections4.MapUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +31,10 @@ public class FmApplicationServiceImpl extends ServiceImpl<FmApplicationMapper, F
         Long current = Long.parseLong(map.get("current").toString());
         Long size = Long.parseLong(map.get("size").toString());
         return this.page(new Page(current, size), commonQueryPara(map));
+    }
+
+    public List<FmApplication> list(Map map) {
+        return this.list(commonQueryPara(map));
     }
 
     private QueryWrapper commonQueryPara(final Map map) {

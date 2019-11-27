@@ -28,6 +28,12 @@ public class FmApplicationController  {
         return new ResponseVo(service.searchPage(paraMap));
     }
 
+
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    public ResponseVo selectList(@RequestParam Map paraMap) {
+        return new ResponseVo(service.list(paraMap));
+    }
+
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public ResponseVo addApp(@RequestBody FmApplication application) {
         this.service.save(application);
