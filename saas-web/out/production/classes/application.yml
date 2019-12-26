@@ -1,0 +1,7 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.3.113:3306/saas?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2b8
+    username: demo
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver

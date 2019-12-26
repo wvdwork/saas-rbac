@@ -11,10 +11,10 @@ import com.wvd.saas.rbac.web.common.exception.RuntimeBusinessException;
 import com.wvd.saas.rbac.web.entity.FmOrganization;
 import com.wvd.saas.rbac.web.mapper.FmOrganizationMapper;
 import com.wvd.saas.rbac.web.service.IFmOrganizationService;
-import com.wvd.saas.rbac.web.util.OrgTree;
+import com.wvd.saas.rbac.web.util.TreeUtils;
 import com.wvd.saas.rbac.web.vo.OrgTreeNode;
+import com.wvd.saas.rbac.web.vo.TreeNode;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.springframework.stereotype.Service;
 
@@ -52,7 +52,7 @@ public class FmOrganizationServiceImpl extends ServiceImpl<FmOrganizationMapper,
             orgList.addAll(childListE);
         }
 
-        Map<Long, OrgTreeNode> nodeMap = new LinkedHashMap<>();
+        Map<Long, TreeNode> nodeMap = new LinkedHashMap<>();
         for (FmOrganization organization : orgList) {
             OrgTreeNode orgTreeNode = new OrgTreeNode();
             orgTreeNode.setId(organization.getId());
@@ -64,7 +64,7 @@ public class FmOrganizationServiceImpl extends ServiceImpl<FmOrganizationMapper,
             nodeMap.put(organization.getId(), orgTreeNode);
         }
 
-        return OrgTree.getNodeJson(0l, nodeMap);
+        return TreeUtils.getNodeJson(0l, nodeMap);
     }
 
     private List findParentList(List<FmOrganization> orgList) {

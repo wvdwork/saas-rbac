@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wvd.saas.rbac.web.mapper.FmMenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wvd.saas.rbac.web.entity.FmMenu">
+        <id column="id" property="id" />
+        <result column="menu_name" property="menuName" />
+        <result column="parent_id" property="parentId" />
+        <result column="is_leaf_node" property="isLeafNode" />
+        <result column="company_id" property="companyId" />
+        <result column="application_id" property="applicationId" />
+        <result column="icon" property="icon" />
+        <result column="extend_propeties" property="extendPropeties" />
+        <result column="path" property="path" />
+        <result column="redirect_path" property="redirectPath" />
+        <result column="is_del" property="isDel" />
+        <result column="create_time" property="createTime" />
+        <result column="create_user" property="createUser" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_user" property="updateUser" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, menu_name AS menuName, parent_id AS parentId, is_leaf_node AS isLeafNode, company_id AS companyId, application_id AS applicationId, icon, extend_propeties AS extendPropeties, path, redirect_path AS redirectPath, is_del AS isDel, create_time AS createTime, create_user AS createUser, update_time AS updateTime, update_user AS updateUser
+    </sql>
+
+</mapper>

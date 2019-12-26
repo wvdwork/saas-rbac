@@ -3,21 +3,11 @@ package com.wvd.saas.rbac.web.vo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrgTreeNode {
-    private long id ;
+public class OrgTreeNode extends TreeNode {
     private Integer orgLevel;
     private String orgCode;
     private String orgName;
     private Long seq;
-    private Long parentId;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Integer getOrgLevel() {
         return orgLevel;
@@ -41,14 +31,6 @@ public class OrgTreeNode {
 
     public void setOrgName(String orgName) {
         this.orgName = orgName;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
     }
 
     public Long getSeq() {

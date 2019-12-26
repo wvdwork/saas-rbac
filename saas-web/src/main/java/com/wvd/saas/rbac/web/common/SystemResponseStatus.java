@@ -9,6 +9,11 @@ public class SystemResponseStatus {
 
     public final static SystemResponseStatus E_4002000 = newStatus("E_4002000", "登录账号已存在");
 
+    public final static SystemResponseStatus E_4004000 = newStatus("E_4004000", "存在子菜单, 不能删除!");
+    public final static SystemResponseStatus E_4004001 = newStatus("E_4004001", "根节点不能删除!");
+
+    public final static SystemResponseStatus E_4005001 = newStatus("E_4005001", "存在明细数据，不能删除!");
+
     private String code;
     private String message;
     protected static SystemResponseStatus newStatus(String code, String message) {
