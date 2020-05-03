@@ -32,7 +32,7 @@ public class FmMenuResouceServiceImpl extends ServiceImpl<FmMenuResourceMapper, 
     private QueryWrapper commonQueryPara(final Map map) {
         final QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("is_del", 0);
-        queryWrapper.eq(StringUtils.isNotEmpty(MapUtils.getString(map, "parentId")), "parent_id", MapUtils.getString(map, "parentId"));
+        queryWrapper.eq(StringUtils.isNotEmpty(MapUtils.getString(map, "menuId")), "menu_id", MapUtils.getString(map, "menuId"));
         return queryWrapper;
     }
 }

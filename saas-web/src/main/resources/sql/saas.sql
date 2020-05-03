@@ -186,10 +186,10 @@ DROP TABLE IF EXISTS `t_fm_menu_resource`;
 CREATE TABLE t_fm_menu_resource
 (
     id              bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '非业务主键ID',
-    parent_id       bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '菜单ID',
+    menu_id       bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '菜单ID',
     resource_name   varchar(20)         NOT NULL DEFAULT '' COMMENT '资源名称',
     resource_type   varchar(20)         NOT NULL DEFAULT '' COMMENT '资源类型',
-    resource_url    varchar(200)        NOT NULL DEFAULT '' COMMENT '资源路径',
+    resource_value    varchar(200)        NOT NULL DEFAULT '' COMMENT '资源路径',
     resource_method varchar(20)         NOT NULL DEFAULT '' COMMENT '方法名称',
     resource_desc   varchar(500)        NOT NULL DEFAULT '' COMMENT '描述信息',
     is_del          tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否被删除',

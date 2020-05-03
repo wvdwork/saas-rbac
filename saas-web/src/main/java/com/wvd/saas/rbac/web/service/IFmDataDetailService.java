@@ -1,9 +1,11 @@
 package com.wvd.saas.rbac.web.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.wvd.saas.rbac.web.entity.FmDataDetail;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -15,4 +17,5 @@ import java.util.List;
  */
 public interface IFmDataDetailService extends IService<FmDataDetail> {
     List<FmDataDetail> getDetailsByDataId(Long dataId);
+    IPage<FmDataDetail> searchPage(Map map);
 }

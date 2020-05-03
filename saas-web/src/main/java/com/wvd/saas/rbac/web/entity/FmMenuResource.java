@@ -26,8 +26,8 @@ public class FmMenuResource extends Model<FmMenuResource> {
     /**
      * 菜单ID
      */
-    @TableField("parent_id")
-    private Long parentId;
+    @TableField("menu_id")
+    private Long menuId;
     /**
      * 资源名称
      */
@@ -41,8 +41,8 @@ public class FmMenuResource extends Model<FmMenuResource> {
     /**
      * 资源路径
      */
-    @TableField("resource_url")
-    private String resourceUrl;
+    @TableField("resource_value")
+    private String resourceValue;
     /**
      * 方法名称
      */
@@ -88,12 +88,12 @@ public class FmMenuResource extends Model<FmMenuResource> {
         this.id = id;
     }
 
-    public Long getParentId() {
-        return parentId;
+    public Long getMenuId() {
+        return menuId;
     }
 
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setMenuId(Long menuId) {
+        this.menuId = menuId;
     }
 
     public String getResourceName() {
@@ -112,12 +112,12 @@ public class FmMenuResource extends Model<FmMenuResource> {
         this.resourceType = resourceType;
     }
 
-    public String getResourceUrl() {
-        return resourceUrl;
+    public String getResourceValue() {
+        return resourceValue;
     }
 
-    public void setResourceUrl(String resourceUrl) {
-        this.resourceUrl = resourceUrl;
+    public void setResourceValue(String resourceValue) {
+        this.resourceValue = resourceValue;
     }
 
     public String getResourceMethod() {
@@ -185,10 +185,10 @@ public class FmMenuResource extends Model<FmMenuResource> {
     public String toString() {
         return "FmMenuResouce{" +
         "id=" + id +
-        ", parentId=" + parentId +
+        ", menuId=" + menuId +
         ", resourceName=" + resourceName +
         ", resourceType=" + resourceType +
-        ", resourceUrl=" + resourceUrl +
+        ", resourceValue=" + resourceValue +
         ", resourceMethod=" + resourceMethod +
         ", resourceDesc=" + resourceDesc +
         ", isDel=" + isDel +

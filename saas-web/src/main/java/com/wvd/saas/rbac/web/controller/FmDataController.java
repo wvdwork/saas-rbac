@@ -2,8 +2,10 @@ package com.wvd.saas.rbac.web.controller;
 
 
 import com.wvd.saas.rbac.web.entity.FmData;
+import com.wvd.saas.rbac.web.entity.FmDataDetail;
 import com.wvd.saas.rbac.web.entity.FmMenu;
 import com.wvd.saas.rbac.web.entity.FmMenuResource;
+import com.wvd.saas.rbac.web.service.IFmDataDetailService;
 import com.wvd.saas.rbac.web.service.IFmDataService;
 import com.wvd.saas.rbac.web.service.IFmMenuResouceService;
 import com.wvd.saas.rbac.web.service.IFmMenuService;
@@ -29,6 +31,9 @@ public class FmDataController {
     @Autowired
     IFmDataService service;
 
+    @Autowired
+    IFmDataDetailService detailService;
+
     @RequestMapping(value = "page", method = RequestMethod.GET)
     public ResponseVo selectPage(@RequestParam Map paraMap) {
         return new ResponseVo(service.searchPage(paraMap));
@@ -46,9 +51,32 @@ public class FmDataController {
         return new ResponseVo();
     }
 
-    @RequestMapping(value = "delete/{orgId}", method = RequestMethod.POST)
-    public ResponseVo delete(@PathVariable Long orgId) {
-        this.service.deleteData(orgId);
+    @RequestMapping(value = "delete/{dataId}", method = RequestMethod.POST)
+    public ResponseVo delete(@PathVariable Long dataId) {
+        this.service.deleteData(dataId);
+        return new ResponseVo();
+    }
+
+    @RequestMapping(value = "detail/page", method = RequestMethod.GET)
+    public ResponseVo selectDetailPage(@RequestParam Map paraMap) {
+        return new ResponseVo(detailService.searchPage(paraMap));
+    }
+
+    @RequestMapping(value = "detail/add", method = RequestMethod.POST)
+    public ResponseVo detailAdd(@RequestBody FmDataDetail fmDataDetail) {
+        this.detailService.save(fmDataDetail);
+        return new ResponseVo();
+    }
+
+    @RequestMapping(value = "detail/modify", method = RequestMethod.POST)
+    public ResponseVo detailModified(@RequestBody FmDataDetail fmDataDetail) {
+        this.detailService.updateById(fmDataDetail);
+        return new ResponseVo();
+    }
+
+    @RequestMapping(value = "detail/delete/{dataId}", method = RequestMethod.POST)
+    public ResponseVo detailDelete(@PathVariable Long detailId) {
+        this.detailService.removeById(detailId);
         return new ResponseVo();
     }
 }

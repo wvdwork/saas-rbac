@@ -62,7 +62,7 @@ public class FmMenuController {
     @RequestMapping(value = "resource/{menuId}", method = RequestMethod.GET)
     public ResponseVo resourceList(@PathVariable Long menuId) {
         Map paraMap = new HashMap();
-        paraMap.put("parentId", menuId);
+        paraMap.put("menuId", menuId);
         return new ResponseVo(resouceService.list(paraMap));
     }
 
