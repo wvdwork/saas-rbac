@@ -45,4 +45,10 @@ public class FmApplicationController  {
         this.service.updateById(application);
         return new ResponseVo();
     }
+
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.POST)
+    public ResponseVo delete(@PathVariable Long id) {
+        this.service.removeById(id);
+        return new ResponseVo();
+    }
 }

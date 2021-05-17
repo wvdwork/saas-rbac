@@ -21,7 +21,7 @@ import java.util.Map;
  * @since 2019-11-03
  */
 @RestController
-@RequestMapping("/fmCompany")
+@RequestMapping("/company")
 public class FmCompanyController {
     @Autowired
     IFmCompanyService companyService;
@@ -40,6 +40,18 @@ public class FmCompanyController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public ResponseVo add(@RequestBody FmCompany company) {
         this.companyService.save(company);
+        return new ResponseVo();
+    }
+
+    @RequestMapping(value = "modify", method = RequestMethod.POST)
+    public ResponseVo modify(@RequestBody FmCompany company) {
+        this.companyService.updateById(company);
+        return new ResponseVo();
+    }
+
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.POST)
+    public ResponseVo delete(@PathVariable Long id) {
+        this.companyService.removeById(id);
         return new ResponseVo();
     }
 }

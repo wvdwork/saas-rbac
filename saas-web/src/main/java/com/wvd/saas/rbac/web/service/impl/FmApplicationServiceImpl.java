@@ -29,7 +29,7 @@ import java.util.Map;
 public class FmApplicationServiceImpl extends ServiceImpl<FmApplicationMapper, FmApplication> implements IFmApplicationService {
     public IPage<FmApplication> searchPage(Map map) {
         Long current = Long.parseLong(map.get("current").toString());
-        Long size = Long.parseLong(map.get("size").toString());
+        Long size = Long.parseLong(map.get("pageSize").toString());
         return this.page(new Page(current, size), commonQueryPara(map));
     }
 
