@@ -13,6 +13,7 @@ import com.wvd.saas.rbac.web.service.IFmApplicationService;
 import com.wvd.saas.rbac.web.service.IFmMenuService;
 import com.wvd.saas.rbac.web.util.TreeUtils;
 import com.wvd.saas.rbac.web.vo.MenuTreeNode;
+import com.wvd.saas.rbac.web.vo.OutMenuTreeNode;
 import com.wvd.saas.rbac.web.vo.TreeNode;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
@@ -65,6 +66,21 @@ public class FmMenuServiceImpl extends ServiceImpl<FmMenuMapper, FmMenu> impleme
         Map<Long, TreeNode> nodeMap = new LinkedHashMap<>();
         for (FmMenu menu : menuList) {
             MenuTreeNode menuTreeNode = new MenuTreeNode();
+            BeanUtils.copyProperties(menu, menuTreeNode);
+            nodeMap.put(menuTreeNode.getId(), menuTreeNode);
+        }
+
+        return TreeUtils.getNodeJson(0l, nodeMap);
+    }
+
+    public JSONArray findByApplication(Long applicationId) {
+        Map paraMap = new HashMap();
+        paraMap.put("applicationId", applicationId);
+        List<FmMenu> menuList = this.list(commonQueryPara(paraMap));
+        Map<Long, TreeNode> nodeMap = new LinkedHashMap<>();
+        for (FmMenu menu : menuList) {
+            OutMenuTreeNode menuTreeNode = new OutMenuTreeNode();
+            menuTreeNode.setName(menu.getMenuName());
             BeanUtils.copyProperties(menu, menuTreeNode);
             nodeMap.put(menuTreeNode.getId(), menuTreeNode);
         }

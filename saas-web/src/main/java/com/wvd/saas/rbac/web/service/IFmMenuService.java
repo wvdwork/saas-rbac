@@ -16,4 +16,5 @@ public interface IFmMenuService extends IService<FmMenu> {
     JSONArray treeByAppId(Long applicationId);
     FmMenu addMenu(Long parentId);
     void removeById(Long id);
+    JSONArray findByApplication(Long applicationId);
 }
